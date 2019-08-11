@@ -1,0 +1,65 @@
+<html>
+    <title>Event Loop</title>
+    <head>
+        <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="./event-loop.css">
+        <script src="./examples/example1.js"></script>
+        <script src="./examples/example2.js"></script>
+    </head>
+    <body>
+        <div class="title">
+            Event loop
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="text-center column-title">Examples</div>
+                    <div class="example-buttons text-center">
+                        <button class="btn btn-primary" id="example1">Exmple 1</button>
+                        <button class="btn btn-primary" id="example2">Exmple 2</button>
+                        <button class="btn btn-primary">Exmple 3</button>
+                    </div>
+                </div>
+                <div class="col-md-4 code-block">
+                    <div class="text-center column-title">Code</div>
+                    <div class="example-code float-left" id="example-code"></div>
+                    <br>
+                    <button class="float-right d-none btn btn-primary" id="execute_prev">Execute Prev</button>
+                    <button class="float-right d-none btn btn-primary" id="execute_next">Execute Next</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center column-title">Execution</div>
+                    <div class="example-execution">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="stack">
+                                    <div class="execution-title">Stack</div>
+                                    <div class="execution-container" id="call-stack"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="api">
+                                    <div class="execution-title">API</div>
+                                    <div class="execution-container" id="api"></div>
+                                </div>                       
+                            </div>
+                        </div>
+                        <div class="event-loop text-center">
+                            <div class="execution-title">Event Loop</div>
+                            <img src="./assets/event-loop.png" alt="event-loop" class="event-loop-img" id="event-loop-img">
+                        </div>
+                        <div class="task-que">
+                            <div class="execution-title">Task Que</div>
+                            <div class="que-container" id="task-que"></div>
+                        </div>
+                        <div class="microtask-que">
+                            <div class="execution-title">Microtask Que</div>
+                            <div class="que-container" id="microtask-que"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./event-loop.js"></script>
+    </body>
+</html>

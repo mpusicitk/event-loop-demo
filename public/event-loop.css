@@ -1,0 +1,153 @@
+body {
+    height: 100%;
+    margin: 0;
+}
+.row {
+    margin: 0;
+}
+.title {
+    background-color: #f0db4f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+.example-buttons button{
+    display: block;
+    margin: 20px auto 0 auto;
+}
+button.btn-primary {
+    background-color: rgba(4, 139, 154, .8);
+    border-color: rgba(4, 139, 154, .8);
+}
+button.btn-primary:hover,
+button.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: rgba(4, 139, 154, 1);
+    border-color: rgba(4, 139, 154, 1);
+}
+button.btn-primary:focus,
+button.btn-primary:active:not(:disabled):not(.disabled):active {
+    box-shadow: none
+}
+.code-block .btn {
+    width: 150px;
+    margin-bottom: 20px;
+}
+.example-code {
+    color: #555;
+    font-weight: 500;
+    padding-top: 20px;
+    white-space: pre-wrap;
+}
+.column-title {
+    color: #555;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 20px;
+}
+.example-execution .execution-title {
+    color: #555;
+    font-weight: 700;
+    padding-top: 20px;
+    text-align: center;
+}
+.example-execution .execution-container, 
+.example-execution .execution-container {
+    height: 300px;
+    width: 200px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    position: relative;
+}
+.example-execution .que-container, 
+.example-execution .que-container {
+    height: 50px;
+    width: 80%;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    position: relative;
+}
+.stack-item,
+.api-item {
+    background:#add8e6;
+    height:30px;
+    position: absolute;
+    width: 190px;
+    border-radius: 2px;
+    animation: push-stack 1s;
+    animation-fill-mode: forwards;
+    margin: 2px 4px;
+    text-align: center;
+    padding-top: 2px;
+    opacity: 0;
+}
+.api-item {
+    background: #2de692;
+}
+.stack-out,
+.api-out {
+    animation: pop-stack 1s;
+}
+.event-loop-img {
+    height: 50px;
+    transform: scaleX(-1);
+}
+.que-item {
+    height: 40px;
+    width: 160px;
+    background-color: #f0db4f;
+    margin: 4px;
+    border-radius: 2px;
+    position: relative;
+    padding: 7px;
+    text-align: center;
+    animation: push-que 1s;
+    animation-fill-mode: forwards;
+    display: inline-block;
+}
+.microtask-que .que-item {
+    background: #caf04f;
+}
+.que-out {
+    animation: pop-que 1s;
+}
+@keyframes push-stack{
+    0%{
+        bottom: 280px;
+        opacity: 0;
+    }
+    100%{
+        bottom:0px;
+        opacity: 1;
+    }
+}
+@keyframes pop-stack{
+    0%{
+        bottom:0px;
+        opacity: 1;
+    }
+    100%{
+        bottom: 280px;
+        opacity: 0;
+    }
+}
+@keyframes push-que {
+    0%{
+        left: 400px;
+        opacity: 0;
+    }
+    100%{
+        left: 0px;
+        opacity: 1;
+    }
+}
+@keyframes pop-que {
+    0%{
+        left: 0px;
+        opacity: 1;
+    }
+    100%{
+        left: -200px;
+        opacity: 0;
+    }
+}
