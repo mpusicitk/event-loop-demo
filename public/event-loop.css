@@ -77,7 +77,7 @@ button.btn-primary:active:not(:disabled):not(.disabled):active {
     margin: 0 auto;
     position: relative;
 }
-.example-execution .que-container {
+.example-execution .queue-container {
     min-height: 50px;
     width: 80%;
     border: 1px solid #ccc;
@@ -109,7 +109,7 @@ button.btn-primary:active:not(:disabled):not(.disabled):active {
     height: 50px;
     transform: scaleX(-1);
 }
-.que-item {
+.queue-item {
     height: 40px;
     width: 160px;
     background-color: #f0db4f;
@@ -118,18 +118,18 @@ button.btn-primary:active:not(:disabled):not(.disabled):active {
     position: relative;
     padding: 7px;
     text-align: center;
-    animation: push-que 1s;
+    animation: push-queue 1s;
     animation-fill-mode: forwards;
     display: inline-block;
 }
-.microtask-que .que-item {
+.microtask-queue .queue-item {
     background: #caf04f;
 }
-.que-pop {
-    animation: pop-que 1s;
+.queue-pop {
+    animation: pop-queue 1s;
 }
-.que-out {
-    animation: remove-que 1s;
+.queue-out {
+    animation: remove-queue 1s;
 }
 @keyframes push-stack{
     0%{
@@ -151,7 +151,7 @@ button.btn-primary:active:not(:disabled):not(.disabled):active {
         opacity: 0;
     }
 }
-@keyframes push-que {
+@keyframes push-queue {
     0%{
         left: 400px;
         opacity: 0;
@@ -161,7 +161,7 @@ button.btn-primary:active:not(:disabled):not(.disabled):active {
         opacity: 1;
     }
 }
-@keyframes pop-que {
+@keyframes pop-queue {
     0%{
         left: 0px;
         opacity: 1;
@@ -171,7 +171,7 @@ button.btn-primary:active:not(:disabled):not(.disabled):active {
         opacity: 0;
     }
 }
-@keyframes remove-que {
+@keyframes remove-queue {
     0%{
         left: 0px;
         opacity: 1;

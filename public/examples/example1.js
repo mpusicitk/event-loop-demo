@@ -26,12 +26,12 @@ function executeExample1() {
     switch (stepCounter) {
         case 0:
             if (!next) {
-                removeitemFromQue(taskQueNode);
+                removeitemFromQueue(taskQueueNode);
             }
             break;
         case 1:
             if (next) {
-                addItemToQue(taskQueNode, 'example1()');
+                addItemToQueue(taskQueueNode, 'example1()');
             } else {
                 popItemFromStack(callStackNode);
             }
@@ -71,7 +71,7 @@ function executeExample1() {
         case 7: {
             addItemToApi(apiNode, 'setTimeout - t');
             if (!next) {
-                removeitemFromQue(taskQueNode);
+                removeitemFromQueue(taskQueueNode);
                 addItemToStack(callStackNode, 'setTimeout(cb, t)');
             }
             break;
@@ -80,7 +80,7 @@ function executeExample1() {
             if (next) {
                 popItemFromApi(apiNode);
                 popItemFromStack(callStackNode);
-                addItemToQue(taskQueNode, 'setTimeout - cb');
+                addItemToQueue(taskQueueNode, 'setTimeout - cb');
             } else {
                 popItemFromStack(callStackNode);
             }
@@ -96,14 +96,14 @@ function executeExample1() {
             addItemToApi(apiNode, 'Promise - resolver');
             if (!next) {
                 addItemToStack(callStackNode, 'Promise(cb)');
-                removeitemFromQue(microtaskQueNode);
+                removeitemFromQueue(microtaskQueueNode);
             }
             break;
         case 11:
             if(next) {
                 popItemFromApi(apiNode);
                 popItemFromStack(callStackNode);
-                addItemToQue(microtaskQueNode, 'Promise - cb');
+                addItemToQueue(microtaskQueueNode, 'Promise - cb');
             } else {
                 popItemFromStack(callStackNode);
             }
@@ -127,13 +127,13 @@ function executeExample1() {
                 popItemFromStack(callStackNode);
             } else {
                 addItemToStack(callStackNode, 'example1');
-                addIitemAsFirstQue(taskQueNode, 'example1()');
+                addIitemAsFirstQueue(taskQueueNode, 'example1()');
             }
             break;
         case 15:
             if (next) {
                 popItemFromStack(callStackNode);
-                popItemFromQue(taskQueNode);
+                popItemFromQueue(taskQueueNode);
             } else {
                 popItemFromStack(callStackNode);
             }
@@ -151,13 +151,13 @@ function executeExample1() {
                 addItemToLogs(logsNode, 'promise');
             } else {
                 addItemToStack(callStackNode, 'Promise - cb');
-                addItemToQue(microtaskQueNode, 'Promise - cb');
+                addItemToQueue(microtaskQueueNode, 'Promise - cb');
             }
             break;
         case 18:
             if (next) {
                 popItemFromStack(callStackNode);
-                popItemFromQue(microtaskQueNode);
+                popItemFromQueue(microtaskQueueNode);
             } else {
                 popItemFromStack(callStackNode);
             }
@@ -175,12 +175,12 @@ function executeExample1() {
                 addItemToLogs(logsNode, 'timer');
             } else {
                 addItemToStack(callStackNode, 'setTimeout - cb');
-                addItemToQue(taskQueNode, 'setTimeout - cb');
+                addItemToQueue(taskQueueNode, 'setTimeout - cb');
             }
             break;
         case 21: 
             popItemFromStack(callStackNode);
-            popItemFromQue(taskQueNode);
+            popItemFromQueue(taskQueueNode);
             break;
         default:
             stepCounter = 0;

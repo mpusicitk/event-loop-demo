@@ -3,8 +3,8 @@ const exampleCodeContainer = document.getElementById('example-code');
 const callStackNode = document.getElementById('call-stack');
 const apiNode = document.getElementById('api');
 const eventLoopImg = document.getElementById('event-loop-img');
-const taskQueNode = document.getElementById('task-que');
-const microtaskQueNode = document.getElementById('microtask-que');
+const taskQueueNode = document.getElementById('task-queue');
+const microtaskQueueNode = document.getElementById('microtask-queue');
 const logsNode = document.getElementById('logs');
 
 document.getElementById('example1').addEventListener('click', showFirstExample);
@@ -38,7 +38,7 @@ function commonExmpleActions(example) {
     executeNextBtn.classList.remove("d-none");
     const executePrevBtn = document.getElementById('execute_prev');
     executePrevBtn.classList.remove("d-none");
-    clearNodeContainer([callStackNode, apiNode, taskQueNode, microtaskQueNode, logsNode]);
+    clearNodeContainer([callStackNode, apiNode, taskQueueNode, microtaskQueueNode, logsNode]);
 }
 
 function clearNodeContainer(nodes) {
@@ -90,31 +90,31 @@ function rotateEventLoop() {
     })
 }
 
-function addItemToQue(que, title) {
+function addItemToQueue(queue, title) {
     const div = document.createElement('div');
-    div.className = 'que-item';
+    div.className = 'queue-item';
     div.innerHTML = title;
-    que.appendChild(div);
+    queue.appendChild(div);
 }
 
-function addIitemAsFirstQue(que, title) {
+function addIitemAsFirstQueue(queue, title) {
     const div = document.createElement('div');
-    div.className = 'que-item';
+    div.className = 'queue-item';
     div.innerHTML = title;
-    que.prepend(div);
+    queue.prepend(div);
 }
 
-function popItemFromQue(que) {
-    que.firstElementChild.classList.add('que-pop');
+function popItemFromQueue(queue) {
+    queue.firstElementChild.classList.add('queue-pop');
     setTimeout(() => {
-        que.removeChild(que.firstElementChild);
+        queue.removeChild(queue.firstElementChild);
     }, 500);
 }
 
-function removeitemFromQue(que) {
-    que.lastElementChild.classList.add('que-out');
+function removeitemFromQueue(queue) {
+    queue.lastElementChild.classList.add('queue-out');
     setTimeout(() => {
-        que.removeChild(que.lastElementChild);
+        queue.removeChild(queue.lastElementChild);
     }, 500);
 }
 
