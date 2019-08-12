@@ -179,10 +179,8 @@ function executeExample1() {
             }
             break;
         case 21: 
-            if (next) {
-                popItemFromStack(callStackNode);
-                popItemFromQue(taskQueNode);
-            }
+            popItemFromStack(callStackNode);
+            popItemFromQue(taskQueNode);
             break;
         default:
             stepCounter = 0;

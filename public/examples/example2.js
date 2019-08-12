@@ -26,126 +26,165 @@ function executeExample2() {
     switch (stepCounter) {
         case 0:
             if (!next) {
-                popItemFromStack(callStackNode);
+                removeitemFromQue(taskQueNode);
             }
             break;
         case 1:
             if (next) {
-                addItemToStack(callStackNode, 'example2');
                 addItemToQue(taskQueNode, 'example2()');
             } else {
                 popItemFromStack(callStackNode);
             }
             break;
         case 2:
-            if (!next) {
-                removeItemFromLogs(logsNode);
+            if (next) {
+                addItemToStack(callStackNode, 'example2');
+            } else {
+                popItemFromStack(callStackNode);
             }
-            addItemToStack(callStackNode, 'start of example2');
             break;
         case 3:
-            popItemFromStack(callStackNode);
             if (next) {
-                addItemToLogs(logsNode, 'start of example2')
+                addItemToStack(callStackNode, 'start of example2');
+            } else {
+                removeItemFromLogs(logsNode);
             }
             break;
         case 4:
-            addItemToStack(callStackNode, 'setTimeout(cb, t) - 3s');
-            if (!next) {
-                popItemFromApi(apiNode);
+            if (next) {
+                addItemToLogs(logsNode, 'start of example2');
+            } else {
+                addItemToStack(callStackNode, 'start of example2');
             }
             break;
         case 5:
             if (next) {
-                addItemToApi(apiNode, 'setTimeout - t - 3s');
+                popItemFromStack(callStackNode);
+            } else {
+                popItemFromStack(callStackNode);
             }
-            popItemFromStack(callStackNode);
             break;
         case 6:
             if (next) {
-                addItemToStack(callStackNode, 'setTimeout(cb, t) - 0s');
+                addItemToStack(callStackNode, 'setTimeout(cb, t) - 3s');
             } else {
-                addItemToStack(callStackNode, 'setTimeout(cb, t) - 0s');
-                popItemFromApi(apiNode);
+                popItemFromApi(apiNode)
             }
             break;
         case 7:
             if (next) {
-                addItemToApi(apiNode, 'setTimeout - t - 0s');
-                popItemFromStack(callStackNode);
+                addItemToApi(apiNode, 'setTimeout - t - 3s');
             } else {
-                popItemFromQue(taskQueNode);
-                addItemToApi(apiNode, 'setTimeout - t - 0s');
+                addItemToStack(callStackNode, 'setTimeout(cb, t) - 3s');
             }
             break;
         case 8:
-            if(next) {
-                addItemToQue(taskQueNode, 'setTimeout - cb - 0s');
-                popItemFromApi(apiNode);
+            if (next) {
+                popItemFromStack(callStackNode);
             } else {
                 popItemFromStack(callStackNode);
             }
             break;
         case 9:
-            if (!next) {
-                removeItemFromLogs(logsNode);
+            if(next) {
+                addItemToStack(callStackNode, 'setTimeout(cb, t) - 0s')
+            } else {
+                popItemFromApi(apiNode);
             }
-            addItemToStack(callStackNode, 'end of example2');
             break;
         case 10:
-            if (next) {
-                popItemFromStack(callStackNode);
-                addItemToLogs(logsNode, 'end of example2');
-            } else {
-                addItemToStack(callStackNode, 'example2()');
+            addItemToApi(apiNode, 'setTimeout - t - 0s');
+            if (!next) {
+                addItemToStack(callStackNode, 'setTimeout(cb, t) - 0s');
+                removeitemFromQue(taskQueNode);
             }
             break;
         case 11:
             if (next) {
                 popItemFromStack(callStackNode);
-            } else {
-                popItemFromQue(taskQueNode);
-                addItemToApi(apiNode, 'setTimeout - t - 3s');
+                popItemFromApi(apiNode);
                 addItemToQue(taskQueNode, 'setTimeout - cb - 0s');
+            } else {
                 popItemFromStack(callStackNode);
+                addItemToApi(apiNode, 'setTimeout - cb - 3s');
+                removeitemFromQue(taskQueNode);
             }
             break;
         case 12:
             if (next) {
+                addItemToStack(callStackNode, 'end of example2');
                 popItemFromApi(apiNode);
-                popItemFromQue(taskQueNode);
-                rotateEventLoop();
                 addItemToQue(taskQueNode, 'setTimeout - cb - 3s');
-                addItemToStack(callStackNode, 'setTimeout - cb - 0s');
             } else {
-                addItemToStack(callStackNode, 'setTimeout - cb - 0s');
                 removeItemFromLogs(logsNode);
             }
             break;
         case 13:
             if (next) {
-                popItemFromStack(callStackNode);
-                addItemToLogs(logsNode, 'timer2');
+                addItemToLogs(logsNode, 'end of example2');
             } else {
-                addItemToQue(taskQueNode, 'setTimeout - cb - 3s');
-                popItemFromStack(callStackNode);
+                addItemToStack(callStackNode, 'end of example2');
             }
             break;
         case 14:
             if (next) {
-                popItemFromQue(taskQueNode);
-                rotateEventLoop();
-                addItemToStack(callStackNode, 'setTimeout - cb - 3s');
+                popItemFromStack(callStackNode);
             } else {
-                addItemToStack(callStackNode, 'setTimeout - cb - 3s');
-                removeItemFromLogs(logsNode);
+                addIitemAsFirstQue(taskQueNode, 'example2()');
+                addItemToStack(callStackNode, 'example2')
             }
             break;
         case 15:
             if (next) {
                 popItemFromStack(callStackNode);
-                addItemToLogs(logsNode, 'timer1');
+                popItemFromQue(taskQueNode);
+            } else {
+                popItemFromStack(callStackNode);
             }
+            break;
+        case 16:
+            if (next) {
+                addItemToStack(callStackNode, 'setTimeout - cb - 0s');
+                rotateEventLoop();
+            } else {
+                removeItemFromLogs(logsNode);
+            }
+            break;
+        case 17:
+            if (next) {
+                addItemToLogs(logsNode, 'timer2');
+            } else {
+                addItemToStack(callStackNode, 'setTimeout - cb - 0s');
+                addItemToQue(taskQueNode, 'setTimeout - cb - 0s');
+            }
+            break;
+        case 18:
+            if (next) {
+                popItemFromStack(callStackNode);
+                popItemFromQue(taskQueNode);
+            } else {
+                popItemFromStack(callStackNode);
+            }
+            break;
+        case 19:
+            if (next) {
+                addItemToStack(callStackNode, 'setTimeout - cb - 3s');
+                rotateEventLoop();
+            } else {
+                removeItemFromLogs(logsNode);
+            }
+            break;
+        case 20:
+            if (next) {
+                addItemToLogs(logsNode, 'timer1');
+            } else {
+                addItemToStack(callStackNode, 'setTimeout - cb - 3s');
+                addItemToQue(taskQueNode, 'setTimeout - cb - 3s');
+            }
+            break;
+        case 21:
+            popItemFromStack(callStackNode);
+            popItemFromQue(taskQueNode);
             break;
         default:
             stepCounter = 0;

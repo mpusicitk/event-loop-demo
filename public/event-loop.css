@@ -70,7 +70,6 @@ button.btn-primary:active:not(:disabled):not(.disabled):active {
     padding-top: 20px;
     text-align: center;
 }
-.example-execution .execution-container, 
 .example-execution .execution-container {
     height: 300px;
     width: 200px;
@@ -78,9 +77,8 @@ button.btn-primary:active:not(:disabled):not(.disabled):active {
     margin: 0 auto;
     position: relative;
 }
-.example-execution .que-container, 
 .example-execution .que-container {
-    height: 50px;
+    min-height: 50px;
     width: 80%;
     border: 1px solid #ccc;
     margin: 0 auto;
