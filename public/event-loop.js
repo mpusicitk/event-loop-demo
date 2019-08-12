@@ -5,6 +5,7 @@ const apiNode = document.getElementById('api');
 const eventLoopImg = document.getElementById('event-loop-img');
 const taskQueNode = document.getElementById('task-que');
 const microtaskQueNode = document.getElementById('microtask-que');
+const logsNode = document.getElementById('logs');
 
 document.getElementById('example1').addEventListener('click', showFirstExample);
 document.getElementById('example2').addEventListener('click', showSecondExample);
@@ -37,15 +38,14 @@ function commonExmpleActions(example) {
     executeNextBtn.classList.remove("d-none");
     const executePrevBtn = document.getElementById('execute_prev');
     executePrevBtn.classList.remove("d-none");
-    clearNodeContainer(callStackNode);
-    clearNodeContainer(apiNode);
-    clearNodeContainer(taskQueNode);
-    clearNodeContainer(microtaskQueNode);
+    clearNodeContainer([callStackNode, apiNode, taskQueNode, microtaskQueNode, logsNode]);
 }
 
-function clearNodeContainer(node) {
-    while (node.lastElementChild) {
-        node.removeChild(node.lastElementChild);
+function clearNodeContainer(nodes) {
+    for (var i = 0; i < nodes.length; i++) {
+        while (nodes[i].lastElementChild) {
+            nodes[i].removeChild(nodes[i].lastElementChild);
+        }
     }
 }
 
@@ -90,32 +90,43 @@ function rotateEventLoop() {
     })
 }
 
-function addItemToTaskQue(taskQue, title) {
+function addItemToQue(que, title) {
     const div = document.createElement('div');
     div.className = 'que-item';
     div.innerHTML = title;
-    taskQue.appendChild(div);
+    que.appendChild(div);
 }
 
-function popItemFromTaskQue(taskQue) {
-    taskQue.firstElementChild.classList.add('que-out');
-    setTimeout(() => {
-        taskQue.removeChild(taskQue.firstElementChild);
-    }, 500);
-}
-
-function addItemToMicrotaskQue(microtaskQue, title) {
+function addIitemAsFirstQue(que, title) {
     const div = document.createElement('div');
     div.className = 'que-item';
     div.innerHTML = title;
-    microtaskQue.appendChild(div);
+    que.prepend(div);
 }
 
-function popItemFromMicrotaskQue(microtaskQue) {
-    microtaskQue.firstElementChild.classList.add('que-out');
+function popItemFromQue(que) {
+    que.firstElementChild.classList.add('que-pop');
     setTimeout(() => {
-        microtaskQue.removeChild(microtaskQue.firstElementChild);
+        que.removeChild(que.firstElementChild);
     }, 500);
+}
+
+function removeitemFromQue(que) {
+    que.lastElementChild.classList.add('que-out');
+    setTimeout(() => {
+        que.removeChild(que.lastElementChild);
+    }, 500);
+}
+
+function addItemToLogs(logs, title) {
+    const div = document.createElement('div');
+    div.className = 'log-item';
+    div.innerHTML = title;
+    logs.appendChild(div);
+}
+
+function removeItemFromLogs(logs, title) {
+    logs.removeChild(logs.lastElementChild);
 }
 
 function addExecuteListener(exampleNumber) {
