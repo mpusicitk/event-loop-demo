@@ -16,6 +16,9 @@ body {
     display: block;
     margin: 20px auto 0 auto;
 }
+.buttons {
+    margin-top: 20px;
+}
 button.btn-primary {
     background-color: rgba(4, 139, 154, .8);
     border-color: rgba(4, 139, 154, .8);

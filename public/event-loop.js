@@ -12,18 +12,18 @@ document.getElementById('example2').addEventListener('click', showSecondExample)
 function showFirstExample() {
     commonExmpleActions(example1);
     example1();
-    removeNextPrevListeners([executeExample1, executeExample2]);
+    removeNextPrevButtonListeners([executeExample1, executeExample2]);
     addExecuteListener(1);
 }
 
 function showSecondExample() {
     commonExmpleActions(example2);
     example2();
-    removeNextPrevListeners([executeExample1, executeExample2]);
+    removeNextPrevButtonListeners([executeExample1, executeExample2]);
     addExecuteListener(2);
 }
 
-function removeNextPrevListeners(array) {
+function removeNextPrevButtonListeners(array) {
     for (var i = 0; i < array.length; i++) {
         document.getElementById('execute_next').removeEventListener('click', array[i]);
         document.getElementById('execute_prev').removeEventListener('click', array[i]);
